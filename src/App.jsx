@@ -5,7 +5,6 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Navbar from './components/navbar';
 import Home from './pages/Home';
-import Dashboard from './pages/Dashboard';
 import GrapeJSEditor from "./components/GrapeJSEditor";
 
 
@@ -17,8 +16,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/gd" element={<GrapeJSEditor />} />
+            <Route path="/dashboard" element={<GrapeJSEditor />} />
 \          </Routes>
         </div>
       </Router>

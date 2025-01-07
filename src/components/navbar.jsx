@@ -2,7 +2,7 @@
 import React from 'react';
 import { SignInButton, UserButton, useUser } from '@clerk/clerk-react';
 import { Link, useLocation } from 'react-router-dom';
-
+import logo from '../assets/logo1.png';
 
 const Navbar = () => {
   const { isSignedIn } = useUser();
@@ -11,52 +11,40 @@ const Navbar = () => {
   const isDashboard = location.pathname === '/dashboard';
 
   return (
-    <nav className={`p-4 shadow-lg shadow-blue-300/40 transition-all duration-300 ${isDashboard ? 'bg-gray-900' : 'bg-gradient-to-r from-purple-600 via-gray-700 to-black'}`}>
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6">
+    <nav className={`py-2 shadow-lg shadow-blue-300/40 transition-all duration-300 bg-stone-300`}>
+      <div className={`max-w-7xl mx-auto flex items-center px-4 ${isDashboard ? 'justify-between' : 'justify-between'}`}>
         
-        <Link to="/" className="text-3xl font-extrabold text-white tracking-wide drop-shadow-md transform hover:scale-105 transition-transform duration-200">
-          PixelCraft
+        <Link to="/" className={`text-3xl font-extrabold text-white tracking-wide drop-shadow-md transform hover:scale-105 transition-transform duration-200 ${isDashboard ? 'mx-auto' : ''}`}>
+        <img src={logo} alt="Logo" className="h-6" />
         </Link>
 
-        {!isDashboard ? (
+        {!isDashboard && (
           <div className="space-x-8 hidden md:flex">
-            <a href="#features" className="text-xl font-semibold text-white hover:text-blue-100 transition-colors duration-200 hover:scale-105">
+            <a href="#features" className="text-xl font-semibold text-stone-900 hover:text-blue-900 transition-colors duration-200 hover:scale-105">
               Features
             </a>
-            <a href="/dashboard" className="text-xl font-semibold text-white hover:text-blue-100 transition-colors duration-200 hover:scale-105">
+            <a href="/dashboard" className="text-xl font-semibold text-stone-900 hover:text-blue-900 transition-colors duration-200 hover:scale-105">
               Dashboard
             </a>
-            <a href="#pricing" className="text-xl font-semibold text-white hover:text-blue-100 transition-colors duration-200 hover:scale-105">
+            <a href="#pricing" className="text-xl font-semibold text-stone-900 hover:text-blue-900 transition-colors duration-200 hover:scale-105">
               Pricing
             </a>
-            <a href="#contact" className="text-xl font-semibold text-white hover:text-blue-100 transition-colors duration-200 hover:scale-105">
+            <a href="#contact" className="text-xl font-semibold text-stone-900 hover:text-blue-900 transition-colors duration-200 hover:scale-105">
               Contact
             </a>
-          </div>
-        ) : (
-          <div className="space-x-8 hidden md:flex">
-            <Link to="/settings" className="text-xl font-semibold text-white hover:text-blue-100 transition-colors duration-200 hover:scale-105">
-              Settings
-            </Link>
-            <Link to="/analytics" className="text-xl font-semibold text-white hover:text-blue-100 transition-colors duration-200 hover:scale-105">
-              Analytics
-            </Link>
-            <Link to="/help" className="text-xl font-semibold text-white hover:text-blue-100 transition-colors duration-200 hover:scale-105">
-              Help
-            </Link>
           </div>
         )}
 
         {/* Sign In / User button */}
-        <div className="space-x-4">
+        <div className={`space-x-4 ${isDashboard ? 'ml-auto' : ''}`}>
           {isSignedIn ? (
             <UserButton
               userProfileMode="navigation"
-              className="bg-white text-gray-800 px-6 py-3 text-xl rounded-full shadow-lg transform transition-transform duration-200 hover:shadow-2xl hover:scale-105"
+              className="bg-white text-gray-800 px-4 py-2 text-xl rounded-full shadow-lg transform transition-transform duration-200 hover:shadow-2xl hover:scale-105"
             />
           ) : (
             <SignInButton mode="modal">
-              <button className="bg-gradient-to-r from-green-400 to-teal-500 hover:from-teal-500 hover:to-green-400 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-all duration-200 transform hover:shadow-2xl hover:scale-105">
+              <button className="bg-black text-white font-bold py-2 px-4 rounded-full shadow-lg transition-all duration-200 transform hover:shadow-2xl hover:scale-105">
                 Sign In
               </button>
             </SignInButton>

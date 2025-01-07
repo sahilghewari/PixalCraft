@@ -32,7 +32,10 @@
     "react-parallax": "^3.5.1",
     "react-resizable": "^3.0.5",
     "react-router-dom": "^6.28.0",
+    "react-scroll-parallax": "^3.4.5",
+    "react-slick": "^0.30.3",
     "simplex-noise": "^4.0.3",
+    "slick-carousel": "^1.8.1",
     "tailwind-merge": "^2.5.4",
     "three": "^0.170.0"
   },
