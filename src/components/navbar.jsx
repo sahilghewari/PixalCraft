@@ -20,16 +20,16 @@ const Navbar = () => {
 
         {!isDashboard && (
           <div className="space-x-8 hidden md:flex">
-            <a href="#features" className="text-xl font-semibold text-stone-900 hover:text-blue-900 transition-colors duration-200 hover:scale-105">
+            <a href="/features" className="text-xl font-semibold text-stone-900 hover:text-blue-900 transition-colors duration-200 hover:scale-105">
               Features
             </a>
             <a href="/dashboard" className="text-xl font-semibold text-stone-900 hover:text-blue-900 transition-colors duration-200 hover:scale-105">
               Dashboard
             </a>
-            <a href="#pricing" className="text-xl font-semibold text-stone-900 hover:text-blue-900 transition-colors duration-200 hover:scale-105">
+            <a href="/pricing" className="text-xl font-semibold text-stone-900 hover:text-blue-900 transition-colors duration-200 hover:scale-105">
               Pricing
             </a>
-            <a href="#contact" className="text-xl font-semibold text-stone-900 hover:text-blue-900 transition-colors duration-200 hover:scale-105">
+            <a href="/contact" className="text-xl font-semibold text-stone-900 hover:text-blue-900 transition-colors duration-200 hover:scale-105">
               Contact
             </a>
           </div>

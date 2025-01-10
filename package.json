@@ -16,7 +16,6 @@
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^6.1.6",
     "@react-three/fiber": "^8.17.10",
-    "@shadcn/ui": "^0.0.4",
     "@tabler/icons-react": "^3.22.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.17",
@@ -36,6 +35,7 @@
     "react-slick": "^0.30.3",
     "simplex-noise": "^4.0.3",
     "slick-carousel": "^1.8.1",
+    "swiper": "^11.2.0",
     "tailwind-merge": "^2.5.4",
     "three": "^0.170.0"
   },
@@ -50,8 +50,8 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.14",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
     "vite": "^5.4.10"
   }
 }
