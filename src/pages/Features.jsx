@@ -1,21 +1,21 @@
 import React from 'react';
-import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
+import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import { motion } from 'framer-motion';
-import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import backgroundImage from '../assets/hero.jpg'; 
-import logo from '../assets/logo1.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
-
-
+import backgroundImage from '../assets/hero.jpg';
+import logo from '../assets/logo1.png';
+import cardBackground1 from '../assets/hero.jpg'; // Add your card background images
+import cardBackground2 from '../assets/hero.jpg';
+import cardBackground3 from '../assets/hero.jpg';
 
 const Features = () => {
-  const carouselSettings = {
+  const settings = {
     centerMode: true,
     centerPadding: '0',
     dots: true,
@@ -42,130 +42,101 @@ const Features = () => {
     ],
   };
 
-
   const features = [
     {
-      icon: '✏️',
-      title: 'Drag-and-Drop Builder',
-      description: 'Craft beautiful designs effortlessly with our advanced drag-and-drop interface. No coding skills required!'
+      icon: '🚀',
+      title: 'No Coding Required',
+      description: 'Create beautiful websites without writing a single line of code.',
+      background: cardBackground1,
     },
     {
-      icon: '📚',
-      title: 'Extensive Template Library',
-      description: 'Access a vast collection of customizable templates tailored to different industries and needs.'
+      icon: '👀',
+      title: 'Live Preview',
+      description: 'Preview your website in real-time as you make changes.',
+      background: cardBackground2,
     },
     {
-      icon: '⚡',
-      title: 'Real-Time Preview',
-      description: 'See your changes instantly with our real-time preview feature, making editing a breeze.'
+      icon: '📑',
+      title: 'Templates',
+      description: 'Choose from a variety of professionally designed templates.',
+      background: cardBackground3,
+    },
+    {
+      icon: '🖱️',
+      title: 'Drag & Drop',
+      description: 'Easily customize your website with our drag-and-drop editor.',
+      background: cardBackground1,
     },
     {
       icon: '📱',
       title: 'Responsive Design',
-      description: 'Ensure your website looks stunning on any device with automatic responsive design tools.'
-    },
-    {
-      icon: '🎨',
-      title: 'Advanced Customization',
-      description: 'Fine-tune every detail with intuitive options for fonts, colors, and layouts.'
-    },
-    {
-      icon: '🤝',
-      title: 'Collaboration Tools',
-      description: 'Work seamlessly with your team by sharing projects and collaborating in real-time.'
+      description: 'Ensure your website looks great on all devices.',
+      background: cardBackground2,
     },
     {
       icon: '🔍',
       title: 'SEO Optimization',
-      description: 'Boost your site’s visibility with built-in SEO tools and best practices.'
+      description: 'Improve your website\'s visibility on search engines.',
+      background: cardBackground3,
     },
-    {
-      icon: '🚀',
-      title: 'One-Click Publishing',
-      description: 'Publish your site instantly with a single click. No technical steps required.'
-    },
-    {
-      icon: '🔗',
-      title: 'Integrations Galore',
-      description: 'Connect with analytics, e-commerce platforms, and marketing tools effortlessly.'
-    }
   ];
-  
-  const testimonials = [
-    {
-      feedback: 'Pixel Craft transformed how I design websites. It’s so easy and intuitive!',
-      name: 'Alex Johnson'
-    },
-    {
-      feedback: 'The drag-and-drop builder is a game-changer. I built my portfolio in hours!',
-      name: 'Sophia Lee'
-    },
-    {
-      feedback: 'Amazing templates and customization options. Highly recommend Pixel Craft!',
-      name: 'Michael Brown'
-    }
-  ];
-  
+
   return (
     <div className="bg-gray-100 min-h-screen font-serif text-gray-900 overflow-hidden">
       <ParallaxProvider>
-        <section
-          className="flex flex-col items-center justify-center h-screen text-center bg-cover bg-center"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="max-w-4xl mx-auto pb-40 flex flex-col items-center"
-          >
-            <img src={logo} alt="Logo" className="w-64 h-auto mb-8" />
-            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-center text-gray-900">
-              Our Features
-            </h1>
-            <p className="text-xl md:text-2xl lg:text-3xl mt-7 font-medium text-center text-gray-700">
-              Discover the powerful features of our platform
-            </p>
-          </motion.div>
+        
+        {/* Why Choose PixelCraft Section */}
+        <section className="py-20 bg-gray-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-extrabold text-stone-400 sm:text-4xl">
+                Why Choose PixelCraft?
+              </h2>
+              <p className="mt-4 text-xl text-gray-500">
+                Our platform offers a range of features to help you create stunning websites without any coding knowledge.
+              </p>
+            </div>
+            <Swiper
+              effect={'coverflow'}
+              grabCursor={true}
+              centeredSlides={true}
+              slidesPerView={'auto'}
+              coverflowEffect={{
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+              }}
+              pagination={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              modules={[EffectCoverflow, Pagination, Autoplay]}
+              className="mySwiper"
+            >
+              {features.map((feature, index) => (
+                <SwiperSlide
+                  key={index}
+                  className="bg-stone-200 p-8 rounded-2xl shadow-2xl flex flex-col justify-between h-[400px] w-[300px] text-center transform hover:scale-105 transition-transform duration-300"
+                  style={{ backgroundImage: `url(${feature.background})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                >
+                  <div className="text-stone-700 text-5xl mb-4">{feature.icon}</div>
+                  <h3 className="text-2xl font-semibold text-stone-700 mb-4">{feature.title}</h3>
+                  <p className="text-stone-600 text-sm leading-relaxed">{feature.description}</p>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            
+          </div>
         </section>
 
-        <section className="py-16">
-        <h2 className="text-center text-3xl font-bold text-stone-700 mb-8">Why Choose PixelCraft?</h2>
-        <Swiper
-          effect={'coverflow'}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={'auto'}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          coverflowEffect={{
-            rotate: 0,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-          }}
-          pagination={true}
-          modules={[EffectCoverflow, Pagination, Autoplay]}
-          className="w-full max-w-5xl mx-auto"
-        >
-          {features.map((feature, index) => (
-            <SwiperSlide
-              key={index}
-              className="bg-stone-200 p-8 rounded-2xl shadow-2xl flex flex-col justify-between h-[400px] w-[300px] text-center transform hover:scale-105 transition-transform duration-300"
-            >
-              <div className="text-stone-700 text-5xl mb-4">{feature.icon}</div>
-              <h3 className="text-2xl font-semibold text-stone-700 mb-4">{feature.title}</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                {feature.description}
-              </p>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </section>
-
+        {/* More Features Section */}
         <section className="py-20 bg-gray-300">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
+            <div className="text-center mb-12">
               <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
                 More Features
               </h2>
@@ -173,137 +144,27 @@ const Features = () => {
                 Explore additional features that make our platform the best choice for creating your website.
               </p>
             </div>
-
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="relative bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105 hover:z-10 hover:shadow-2xl"
-                style={{ perspective: '1000px' }}
-              >
-                <div className="transform hover:rotate-y-6 hover:rotate-x-6 transition-transform duration-500">
-                  <h3 className="text-xl font-bold text-gray-900 mt-8">Custom Domains</h3>
-                  <p className="mt-4 text-gray-700">
-                    Use your own domain name for a professional look.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="relative bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105 hover:z-10 hover:shadow-2xl"
-                style={{ perspective: '1000px' }}
-              >
-                <div className="transform hover:rotate-y-6 hover:rotate-x-6 transition-transform duration-500">
-                  <h3 className="text-xl font-bold text-gray-900 mt-8">Analytics</h3>
-                  <p className="mt-4 text-gray-700">
-                    Track your website's performance with built-in analytics.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="relative bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105 hover:z-10 hover:shadow-2xl"
-                style={{ perspective: '1000px' }}
-              >
-                <div className="transform hover:rotate-y-6 hover:rotate-x-6 transition-transform duration-500">
-                  <h3 className="text-xl font-bold text-gray-900 mt-8">E-commerce</h3>
-                  <p className="mt-4 text-gray-700">
-                    Set up an online store and start selling products.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="relative bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105 hover:z-10 hover:shadow-2xl"
-                style={{ perspective: '1000px' }}
-              >
-                <div className="transform hover:rotate-y-6 hover:rotate-x-6 transition-transform duration-500">
-                  <h3 className="text-xl font-bold text-gray-900 mt-8">Blogging</h3>
-                  <p className="mt-4 text-gray-700">
-                    Create and manage a blog to engage with your audience.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="relative bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105 hover:z-10 hover:shadow-2xl"
-                style={{ perspective: '1000px' }}
-              >
-                <div className="transform hover:rotate-y-6 hover:rotate-x-6 transition-transform duration-500">
-                  <h3 className="text-xl font-bold text-gray-900 mt-8">24/7 Support</h3>
-                  <p className="mt-4 text-gray-700">
-                    Get help whenever you need it with our 24/7 support.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="relative bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105 hover:z-10 hover:shadow-2xl"
-                style={{ perspective: '1000px' }}
-              >
-                <div className="transform hover:rotate-y-6 hover:rotate-x-6 transition-transform duration-500">
-                  <h3 className="text-xl font-bold text-gray-900 mt-8">Security</h3>
-                  <p className="mt-4 text-gray-700">
-                    Keep your website secure with our advanced security features.
-                  </p>
-                </div>
-              </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {features.slice(0, 3).map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="relative bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105 hover:z-10 hover:shadow-2xl"
+                  style={{ backgroundImage: `url(${feature.background})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                >
+                  <div className="text-stone-700 text-5xl mb-4">{feature.icon}</div>
+                  <h3 className="text-2xl font-bold text-stone-700 mb-4">{feature.title}</h3>
+                  <p className="text-stone-600 text-lg leading-relaxed">{feature.description}</p>
+                </motion.div>
+              ))}
             </div>
+
+           
           </div>
         </section>
       </ParallaxProvider>
-      <footer className="bg-gray-900 text-gray-100 py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-lg font-bold mb-4">About PixelCraft</h3>
-              <p className="text-gray-400">
-                PixelCraft is a leading frontend design studio specializing in creating beautiful and responsive web designs.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-4">Quick Links</h3>
-              <ul className="text-gray-400">
-                <li className="mb-2"><a href="#features" className="hover:text-gray-200">Features</a></li>
-                <li className="mb-2"><a href="#services" className="hover:text-gray-200">Services</a></li>
-                <li className="mb-2"><a href="#contact" className="hover:text-gray-200">Contact</a></li>
-                <li className="mb-2"><a href="#about" className="hover:text-gray-200">About Us</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-4">Contact Us</h3>
-              <p className="text-gray-400">
-                Email: info@pixelcraft.com
-              </p>
-              <p className="text-gray-400">
-                Phone: +1 (123) 456-7890
-              </p>
-              <p className="text-gray-400">
-                Address: 123 PixelCraft St, Design City, DC 12345
-              </p>
-            </div>
-          </div>
-          <div className="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400">
-            &copy; 2023 PixelCraft. All rights reserved.
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };

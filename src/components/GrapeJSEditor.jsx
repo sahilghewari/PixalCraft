@@ -10,7 +10,7 @@ const GrapeJSEditor = () => {
       container: editorRef.current,
       height: "100vh",
       width: "auto",
-      storageManager: false, // Disable storage
+      storageManager: false, 
       canvas: {
         styles: [
           "/template/css/bootstrap.min.css",
