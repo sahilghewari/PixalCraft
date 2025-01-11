@@ -4,6 +4,7 @@ import { SignInButton, UserButton, useUser } from '@clerk/clerk-react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logo1.png';
 
+
 const Navbar = () => {
   const { isSignedIn } = useUser();
   const location = useLocation();
