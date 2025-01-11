@@ -1,53 +1,37 @@
 import React, { useEffect, useRef } from "react";
-import grapesjs from "grapesjs";
-import "grapesjs/dist/css/grapes.min.css";
+import StudioEditor from '@grapesjs/studio-sdk/react';
+import '@grapesjs/studio-sdk/style';
 
 const GrapeJSEditor = () => {
-  const editorRef = useRef(null);
 
-  useEffect(() => {
-    const editor = grapesjs.init({
-      container: editorRef.current,
-      height: "100vh",
-      width: "auto",
-      storageManager: false, // Disable storage
-      canvas: {
-        styles: [
-          "/template/css/bootstrap.min.css",
-          "/template/css/bootstrap-icons.css",
-          "/template/css/templatemo-topic-listing.css",
-        ],
-        scripts: [
-          "/template/js/jquery.min.js",
-          "/template/js/bootstrap.bundle.min.js",
-          "/template/js/click-scroll.js",
-          "/template/js/jquery.sticky.js",
-          "/template/js/custom.js",
-        ],
-      },
-      assetManager: {
-        assets: [
-          { src: "/template/images/businesswoman-using-tablet-analysis.jpg", name: "Tablet Analysis" },
-          { src: "/template/images/colleagues-working-cozy-office-medium-shot.jpg", name: "Colleagues" },
-          { src: "/template/images/faq_graphic.jpg", name: "FAQ Graphic" },
-        ],
-      },
-    });
-
-    // Load the main HTML file
-    fetch("/template/index.html")
-      .then((res) => res.text())
-      .then((html) => {
-        editor.setComponents(html);
-      })
-      .catch((err) => console.error("Failed to load HTML:", err));
-
-    return () => {
-      editor.destroy();
-    };
-  }, []);
-
-  return <div ref={editorRef} />;
+// ... inside your React component
+return (
+  <div className="h-screen flex flex-col">
+    <StudioEditor
+      className="flex-1"
+      options={{
+        licenseKey: '7900dc5163b2453a9c68d04c129a4cd6c17185a51fb9451d8c0e24ed96634ed2',
+        project: {
+          type: 'web',
+          // TODO: replace with a unique id for your projects. e.g. an uuid
+          id: 'UNIQUE_PROJECT_ID'
+        },
+        identity: {
+          // TODO: replace with a unique id for your end users. e.g. an uuid
+          id: 'UNIQUE_END_USER_ID'
+        },
+        assets: {
+          storageType: 'cloud'
+        },
+        storage: {
+          type: 'cloud',
+          autosaveChanges: 100,
+          autosaveIntervalMs: 10000
+        }
+      }}
+    />
+  </div>
+);
 };
 
 export default GrapeJSEditor;
