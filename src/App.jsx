@@ -9,12 +9,13 @@ import GrapeJSEditor from "./components/GrapeJSEditor";
 import Features from './pages/Features';
 import Pricing from './pages/Pricing';
 import ContactUs from './pages/Contact';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <DndProvider backend={HTML5Backend}>
       <Router>
-        <div className="font-sans">
+        <div className="font-jersey text-2xl">
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -23,6 +24,7 @@ function App() {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/contact" element={<ContactUs />} />
 \          </Routes>
+            <Footer />
         </div>
       </Router>
     </DndProvider>

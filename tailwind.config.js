@@ -1,6 +1,8 @@
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -14,7 +16,11 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        jersey: ['"Jersey 15"', ...defaultTheme.fontFamily.sans]
+      },
+    },
   },
   plugins: [addVariablesForColors],
 };

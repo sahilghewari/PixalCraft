@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import backgroundImage from '../assets/hero.jpg'; 
+import Footer from '../components/Footer';
 
 const Pricing = () => {
   const [billingCycle, setBillingCycle] = useState('monthly');
@@ -11,7 +12,7 @@ const Pricing = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen font-serif text-gray-900 overflow-hidden">
+    <div className="bg-gray-100 min-h-screenfont-jersey text-gray-900 overflow-hidden">
       <ParallaxProvider>
         {/* Hero Section */}
         <section className="flex flex-col items-center justify-center h-screen text-center bg-cover bg-center bg-stone-300"
@@ -298,7 +299,7 @@ const Pricing = () => {
 
         {/* Call-to-Action Footer */}
         
-        <footer className="bg-gray-900 text-gray-100 py-10">
+        <footer className="bg-gray-700 text-gray-100 py-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-extrabold text-gray-100 sm:text-4xl">
               Ready to Get Started?
@@ -311,42 +312,6 @@ const Pricing = () => {
             </button>
           </div>
         </footer>
-        <footer className="bg-gray-800 text-gray-100 py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-lg font-bold mb-4">About PixelCraft</h3>
-              <p className="text-gray-400">
-                PixelCraft is a leading frontend design studio specializing in creating beautiful and responsive web designs.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-4">Quick Links</h3>
-              <ul className="text-gray-400">
-                <li className="mb-2"><a href="#features" className="hover:text-gray-200">Features</a></li>
-                <li className="mb-2"><a href="#services" className="hover:text-gray-200">Services</a></li>
-                <li className="mb-2"><a href="#contact" className="hover:text-gray-200">Contact</a></li>
-                <li className="mb-2"><a href="#about" className="hover:text-gray-200">About Us</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-4">Contact Us</h3>
-              <p className="text-gray-400">
-                Email: info@pixelcraft.com
-              </p>
-              <p className="text-gray-400">
-                Phone: +1 (123) 456-7890
-              </p>
-              <p className="text-gray-400">
-                Address: 123 PixelCraft St, Design City, DC 12345
-              </p>
-            </div>
-          </div>
-          <div className="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400">
-            &copy; 2023 PixelCraft. All rights reserved.
-          </div>
-        </div>
-      </footer>
       </ParallaxProvider>
     </div>
   );

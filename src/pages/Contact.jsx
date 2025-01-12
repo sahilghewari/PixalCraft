@@ -2,10 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import backgroundImage from '../assets/hero.jpg'; 
+import Footer from '../components/Footer';
 
 const ContactUs = () => {
   return (
-    <div className="bg-gray-100 min-h-screen font-serif text-gray-900 overflow-hidden">
+    <div className="font-jersey bg-gray-100 min-h-screen text-gray-900 overflow-hidden">
       <ParallaxProvider>
         {/* Hero Section */}
         <section className="flex flex-col items-center justify-center h-screen text-center bg-cover bg-center "          

@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import backgroundImage from '../assets/hero.jpg';
 import logo from '../assets/logo1.png';
+import Footer from '../components/Footer';
 
 const Home = () => {
   const settings = {
@@ -36,7 +37,7 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen font-serif text-gray-900 overflow-hidden">
+    <div className="font-jersey bg-gray-100 min-h-screen text-gray-900 overflow-hidden">
       <ParallaxProvider>
         <section
           className="flex flex-col items-center justify-center h-screen text-center bg-cover bg-center"
@@ -50,14 +51,14 @@ const Home = () => {
           >
             
             
-            <h1 className="text-4xl md:text-6xl lg:text-5xl mb-8 mt-20 font-bold text-center text-gray-900">
+            <h1 className="font-jersey text-6xl mb-8 mt-20 font-bold text-center text-gray-900">
               Welcome to 
             </h1>            <img src={logo} alt="Logo" className="w-90 h-auto mb-8" />
 
-            <p className="text-xl md:text-2xl lg:text-3xl mt-7 font-medium text-center text-gray-700">
+            <p className="font-jersey text-xl md:text-3xl lg:text-4xl mt-7 font-medium text-center text-gray-700">
               Your Ultimate Frontend Design Studio
             </p>
-            <p className="text-lg md:text-xl lg:text-2xl mt-4 font-light text-center text-gray-600">
+            <p className="font-jersey text-lg md:text-2xl lg:text-3xl mt-4 font-light text-center text-gray-600">
               Crafting beautiful and responsive web designs with precision and creativity.
             </p>
           </motion.div>
@@ -67,10 +68,10 @@ const Home = () => {
       <section className="py-20 bg-stone-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            <h2 className="font-jersey text-3xl font-extrabold text-gray-900 sm:text-4xl">
               Why Choose PixelCraft?
             </h2>
-            <p className="mt-4 text-lg text-gray-700">
+            <p className="font-jersey mt-4 text-lg text-gray-700">
               At PixelCraft, we specialize in creating stunning and functional frontend designs that elevate your brand and engage your audience.
             </p>
           </div>
@@ -209,43 +210,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      <footer className="bg-gray-900 text-gray-100 py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-lg font-bold mb-4">About PixelCraft</h3>
-              <p className="text-gray-400">
-                PixelCraft is a leading frontend design studio specializing in creating beautiful and responsive web designs.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-4">Quick Links</h3>
-              <ul className="text-gray-400">
-                <li className="mb-2"><a href="#features" className="hover:text-gray-200">Features</a></li>
-                <li className="mb-2"><a href="#services" className="hover:text-gray-200">Services</a></li>
-                <li className="mb-2"><a href="#contact" className="hover:text-gray-200">Contact</a></li>
-                <li className="mb-2"><a href="#about" className="hover:text-gray-200">About Us</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-4">Contact Us</h3>
-              <p className="text-gray-400">
-                Email: info@pixelcraft.com
-              </p>
-              <p className="text-gray-400">
-                Phone: +1 (123) 456-7890
-              </p>
-              <p className="text-gray-400">
-                Address: 123 PixelCraft St, Design City, DC 12345
-              </p>
-            </div>
-          </div>
-          <div className="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400">
-            &copy; 2023 PixelCraft. All rights reserved.
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
